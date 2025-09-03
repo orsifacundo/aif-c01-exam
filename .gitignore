@@ -1,0 +1,14 @@
+#Add the .kiro folder and any DSStore (or whatever is name from MacOs)
+
+# Kiro AI assistant configuration
+.kiro/
+
+# macOS system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+transcribe*
