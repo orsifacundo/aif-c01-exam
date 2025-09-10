@@ -774,6 +774,30 @@
 - **Sources**: Data present in training sets or user prompts
 - **Permanence Problem**: Once model is trained on data, it cannot "forget" by simply deleting the data
 
+#### Performance trade-off analysis
+
+Perform alternative trade-off analysis to obtain optimal performance and accuracy for a given use-case data and business requirement.
+
+- Accuracy versus complexity trade-off: The simpler a machine learning model is, the more explainable are its predictions. Deep learning predictions can potentially outperform linear regression or a decision tree algorithm, but at the cost of added complexity in interpretability and explainability.
+
+- Bias versus fairness trade-off: Define a process for managing risks of bias and fairness in model performance. Business value most often aligns with models that have considered historical or sampling biases in the training data. Further consideration should be given to the disparate impact of inaccurate model predictions. For example, underrepresented groups are often more impacted by historical biases, which might perpetuate unfair practices.
+
+- Bias versus variance trade-off (supervised ML): The goal is to achieve a trained model with the lowest bias versus variance tradeoff for a given data set. To help overcome bias and variance errors, you can use:
+
+    - Cross validation
+
+    - More data
+
+    - Regularization
+
+    - Simpler models
+
+    - Dimension reduction (Principal Component Analysis)
+
+    - Stop training early
+
+- Precision versus recall trade-off (supervised ML): This analysis can be important when precision is more important than recall or vice versa. For example, optimization of precision is more important when the goal is to reduce false positives. However, optimization of recall is more important when the goal is to reduce false negatives. It’s not possible to have both high precision and high recall-if one is increased, the other decreases. A trade-off analysis helps identify the optimal option for analysis.
+
 #### AWS Solutions for Responsible AI
 
 ##### Amazon Bedrock Guardrails
@@ -807,7 +831,7 @@
 
 - **Two Measures of Transparency**:
   - **Interpretability**: Understanding the inner mechanisms of how a model works
-  - **Explainability**: Being able to describe what a model is doing without knowing exactly how
+  - **Explainability**: Being able to describe what a model is doing without knowing exactly how. Process of explaining a model's behavior in human terms. 
 
 #### Interpretability vs Explainability
 
@@ -916,6 +940,41 @@
   4. Reward model predicts human scoring of prompt responses
   5. LLM uses reward model to refine responses for maximum reward
 - **Implementation**: SageMaker Ground Truth facilitates collecting human preferences for RLHF
+
+## Domain 5:
+
+### 5.1: Explain Methods to Secure AI Systems
+
+#### Amazon S3 Block Public Access
+- **S3 Block Public Access**: Feature to block public access to all your objects at bucket or account level (current and future objects).
+- **Bucket level**: When enabled at bucket level, some buckets in your account might still be open to the public.
+- **Account level**: When enabled at account level, no buckets (existing or new) can grant public access.
+- **Override capability**: When enabled, S3 Block Public Access overrides any public permissions granted by bucket policies or access control lists.
+
+### Amazon SageMaker Role Manager
+- **Purpose**: Greatly simplifies creating IAM roles that grant permissions to perform ML activities instead of creating IAM permissions policies manually.
+- **Pre-configured components**:
+    - Three pre-configured role personas
+    - Predefined permissions for 12 ML activities
+    - Permissions to access other services (Amazon S3, AWS Glue, Amazon Athena, Amazon CloudWatch)
+    - Permissions to manage and monitor SageMaker resources (models, endpoints, training jobs, pipelines, experiments)
+
+#### Role Personas
+- **Data scientist persona**: For users who need to use SageMaker to perform general machine learning development and experimentation.
+- **MLOps persona**: For users managing models, pipelines, experiments, and endpoints, but who don't need to access data in Amazon S3.
+- **SageMaker compute persona**: Used for creating roles that SageMaker compute resources can use to perform tasks such as training and inference.
+
+
+
+
+
+
+### 5.2: Recognize Governance and Compliance Regulations for AI Systems
+
+
+
+
+
 
 
 
