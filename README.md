@@ -964,6 +964,110 @@ Perform alternative trade-off analysis to obtain optimal performance and accurac
 - **MLOps persona**: For users managing models, pipelines, experiments, and endpoints, but who don't need to access data in Amazon S3.
 - **SageMaker compute persona**: Used for creating roles that SageMaker compute resources can use to perform tasks such as training and inference.
 
+### AI System Vulnerabilities and Attacks
+- **Training data poisoning**: Malicious actors can introduce corrupted data into training datasets to alter model predictions and behavior.
+- **Adversarial Inputs**: Subtle manipulations to input data designed to cause model misclassification.
+- **Model Inversion Attacks**: Attacker feeds data into model and studies outputs to infer training data.
+- **Model Extraction/Reverse Engineering**: Using input-output pairs to train a new model that works in reverse to infer original training data.
+- **Prompt Injection**: Malicious instructions given to large language models through prompts to influence output. Prompting LLM to ignore or alter its prompt template to gain sensitive information.
+
+### Security Mitigation Strategies
+- **Securing and limiting access to data and models**: to block reverse engineering
+- **Monitor models in production for drift and anomalies**
+- **Data and artifacts should be encrypted**
+- **Input data from users must be inspected and validated**: the input to your model should be looking for unusual patterns.
+- **Don't provide any unnecessary information in the model output**: an attacker might be able to use it to infer information about the model
+- **Adversarial training**: Include adversarial inputs in training data to help models resist attacks.
+- **Frequent retraining**: Train models regularly with new data to undo damage from corrupted training data.
+- **Validation datasets**: Maintain separate validation datasets and validate models after each retraining before deployment.
+- **Data quality monitoring**: Routinely scan and monitor training data for quality issues and anomalies.
+
+### Production Monitoring and Anomaly Detection
+
+#### Amazon SageMaker Model Monitor
+- **Purpose**: Continuously monitor quality of SageMaker ML models in production environments.
+- **Real-time monitoring**: Provides continuous monitoring capabilities for deployed models.
+- **Automated alerting**: Set up automated alert systems for deviations in model quality, data drift, or anomalies.
+- **Baseline comparison**: Compares current data and model performance against established baselines.
+
+##### Data Quality Monitoring
+- **Data capture requirement**: Must enable data capture to monitor data quality.
+- **Inference capture**: Captures input and output from inference endpoints or batch transform jobs.
+- **Baseline creation**: Typically uses training dataset to establish baseline for comparison.
+- **Monitoring jobs**: Schedule data quality monitoring jobs that generate statistics for baseline and current datasets.
+
+##### Model Performance Monitoring
+- **Labeled data baseline**: Uses labeled data to create performance baseline.
+- **Ground Truth integration**: Compares inferences with labeled data from SageMaker Ground Truth for same inputs.
+- **Performance evaluation**: Evaluates model performance against baseline metrics.
+- **Results visualization**: View monitoring results in SageMaker Studio interface.
+
+#### Amazon CloudWatch Integration
+- **Log collection**: CloudWatch Logs collect monitoring files and model status information.
+- **Threshold notifications**: Notifies when model quality hits preset thresholds.
+- **S3 storage**: Stores log files in specified Amazon S3 buckets for long-term retention.
+- **Metrics visibility**: Statistics and metrics visible in both SageMaker Studio and CloudWatch.
+
+### Model Reproducibility Requirements
+- **Regulatory compliance**: Tracking all artifacts used for model production is essential for meeting regulatory and control requirements
+- **Model recreation**: All artifacts that went into model development must be versioned and tracked to recreate models
+- **Audit trail**: Maintain comprehensive records for governance and compliance purposes
+
+### Amazon SageMaker Model Registry
+- **Model cataloging**: Store model versions in a model catalog using SageMaker Model Registry
+- **Model groups**: Catalog models in groups that contain different versions of a model
+- **Model packages**: Each model package in a group corresponds to a trained model
+- **Metadata management**: Associate and view model metadata, including training metrics
+- **Direct deployment**: Models can be deployed directly from the model registry
+- **Status tracking**: Maintain model status such as pending, approved, or rejected
+- **Training job tracking**: SageMaker automatically identifies each training job and stores metadata like hyperparameters and unique identifiers
+
+### Amazon SageMaker Model Cards
+- **Documentation**: Document, retrieve, and share essential model information from conception to deployment
+- **Immutable records**: Create immutable records of:
+  - Intended model uses
+  - Risk ratings
+  - Training details
+  - Evaluation results
+- **Export capability**: Model cards can be exported to PDF and shared with relevant stakeholders
+
+### Amazon SageMaker ML Lineage Tracking
+- **Workflow visualization**: Automatically creates graphical representation of end-to-end ML workflows
+- **Model governance**: Use representation to establish model governance and reproduce workflows
+- **Work history**: Maintain comprehensive record of work history
+- **Automatic tracking**: Creates tracking entities for trial components, trials, and experiments
+- **Job integration**: Works with SageMaker jobs including:
+  - Processing jobs
+  - Training jobs
+  - Batch transform jobs
+- **Relationship queries**: Run queries against lineage data to discover relationships between entities
+- **Example queries**:
+  - Retrieve all models that use a particular dataset
+  - Retrieve datasets that use a container image artifact
+
+### Amazon SageMaker Feature Store
+- **Feature management**: Centralized store for features and associated metadata for easy discovery and reuse
+- **Development acceleration**: Makes it less complicated to create, share, and manage features for ML development
+- **Data processing reduction**: Reduces repetitive data processing and curation work required to convert raw data into features
+- **Workflow pipelines**: Create pipelines that convert raw data into features and add them to feature groups
+- **Feature lineage**: View lineage of feature groups including:
+  - Execution code information of feature processing workflows
+  - Data sources used
+  - Ingestion methods to feature groups
+- **Point-in-time queries**: Support queries to retrieve the state of each feature at historical times of interest
+
+### Amazon SageMaker Model Dashboard
+- **Centralized portal**: Accessible from SageMaker console to view, search, and explore all models in your account
+- **Information aggregation**: Aggregates model-related information from several features including Model Monitor and Model Cards
+- **Workflow visualization**: Visualize workflow lineage and track endpoint performance
+- **Deployment tracking**: Track which models are deployed for inference and whether they're used in Batch transform jobs or Hosted endpoints
+- **Performance monitoring**: Track model performance as they make real-time predictions on live data
+- **Threshold monitoring**: Find models that violate thresholds set for:
+  - Data quality
+  - Model quality
+  - Bias
+  - Explainability
+- **Comprehensive presentation**: Helps quickly identify models that don't have monitoring metrics configured
 
 
 
