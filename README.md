@@ -1,8 +1,6 @@
 # AWS Certified AI Practitioner (AIF-C01)
 
-## Domain 1: 
-
-### 1.1: Explain Basic AI Concepts and Terminologies
+## Domain 1: 1.1 Explain Basic AI Concepts and Terminologies
 
 ![](./images/ai-concepts.png)
 
@@ -22,7 +20,7 @@
 
 - **Natural language processing** (NLP) is what allows machines to understand, interpret, and generate human language in a natural-sounding way.
 
-#### Machine learning
+### Machine learning
 
 - Type of data:
 
@@ -53,9 +51,9 @@
 
 - **Bias** is when there are disparities in the performance of a model across different groups. The results are skewed in favor of or against an outcome for a particular class. The quality of a model depends on the underlying data quality and quantity. Also, if a model is showing bias, the weight of features that are introducing noise can be directly adjusted by the data scientists.
 
-### 1.2: Identify practical use cases for AI
+## Domain 1: 1.2 Identify practical use cases for AI
 
-#### ML problem types
+### ML problem types
 
 ![](./images/ml-problem-types.png)
 
@@ -78,7 +76,7 @@
 
     - Anomaly detection: If you are seeking to spot outliers in your data.
 
-#### AWS AI Service Use Cases
+### AWS AI Service Use Cases
 
 - **Amazon Rekognition** - Computer Vision Servic
     - Facial recognition and identification
@@ -143,7 +141,7 @@
     - Model deployment and real-time inference endpoints
     - Pre-trained models to accelerate development process
 
-### 1.3: Describe the ML Development Lifecycle
+## Domain 1: 1.3 Describe the ML Development Lifecycle
 
 ![](./images/ml-pipeline.png)
 
@@ -155,16 +153,16 @@
   - Monitored for drift and bias, adjusted as needed
   - Many phases are iterative and repeated after deployment
 
-#### ML Pipeline Phases
+### ML Pipeline Phases
 
-##### Identify Business Goals
+#### Identify Business Goals
 
 - **Problem Definition**: 
   - Start with clear business objectives and success criteria
   - Align stakeholders and evaluate if ML is the appropriate approach
   - Perform cost-benefit analysis before proceeding
 
-##### Frame ML Problem
+#### Frame ML Problem
 
 - **Data Preparation**: 
   - Ensure sufficient high-quality training data is available
@@ -197,7 +195,7 @@
         - Fine-tune with incremental training using your dataset
         - Significant cost and development time savings
 
-##### Collect Data
+#### Collect Data
 
 - **Data Identification and Collection**:
   - Identify what training data is needed and where it's generated/stored
@@ -210,14 +208,14 @@
   - Often the longest part of the process due to lack of accurately labeled data
   - Critical for supervised learning models
 
-##### Pre-process data
+#### Pre-process data
 
 - **Data Preparation**:
   - **Exploratory Data Analysis (EDA)**: Use visualization tools to understand data
   - **Data preprocessing**: Filter or repair missing/anomalous values, mask/remove PII
   - **Data splitting**: Typically 80% training, 10% evaluation, 10% final testing
 
-##### Engineer features  
+#### Engineer features  
 
 - **Feature engineering**: Select relevant characteristics that minimize error rate
 
@@ -226,7 +224,7 @@
   - Combine features to reduce total number
   - Reduces memory and computing power requirements
 
-###### Data Services
+#### Data Services
 
 - **AWS Glue** - Fully Managed ETL Service:
     - Create ETL jobs with few clicks in Management Console
@@ -266,7 +264,7 @@
     - Reduces repetitive data processing work
     - Create workflow pipelines to convert raw data into features
 
-##### Train, Tune and Evaluate
+#### Train, Tune and Evaluate
 
 - **Training Process**:
   - Iterative process where algorithm updates parameters/weights
@@ -280,7 +278,7 @@
   - Hyperparameters include neural layers, nodes in deep learning models
   - Optimal values determined through multiple experiments
 
-###### Training Services
+#### Training Services
 
 - **Amazon SageMaker Training Jobs**:
     - Create training job that runs code on managed ML compute instances
@@ -306,7 +304,7 @@
     - Runs training jobs in loop until completion criteria satisfied
     - Completion criteria based on number of jobs no longer improving metric
 
-##### Deploy
+#### Deploy
 
 - **Inference Types**:
   - **Batch inference**: Large number of inferences, can wait for results (most cost-effective)
@@ -319,7 +317,7 @@
   - Example: API Gateway interfaces with clients and forwards requests to Lambda function running the model
   - Different services require varying levels of operational management (updates, patches, scalability, security)
 
-###### Deployment Services
+#### Deployment Services
 
 - **Amazon SageMaker endpoints**:
   - Fully managed hosting with reduced operational overhead
@@ -334,7 +332,7 @@
   - **Serverless Inference**: Real-time responses using Lambda functions, pay only when running or pre-provisioned. Serverless inference has a processing time of up to 60 seconds.
   - **Real-time Inference**: Persistent fully managed REST API endpoint for sustained traffic with immediate responses
 
-##### Monitor
+#### Monitor
 
 - Model performance degrades over time due to data quality, model quality, and model bias issues. The monitoring system must capture data, compare it to the training set, define rules to detect issues, and send alerts. This process repeats on a scheduled basis, when initiated by an event, or through human intervention.
 
@@ -342,7 +340,7 @@
 
 - For most ML models, a simple scheduled approach for re-training daily, weekly, or monthly is usually sufficient. The monitoring system should detect data and concept drifts, initiate alerts, and send them to an alarm manager system.
 
-###### Monitoring Services
+#### Monitoring Services
 
 - **Amazon SageMaker Model Monitor** - Production Model Monitoring
     - Monitors models in production and detects errors for remedial actions
@@ -365,7 +363,7 @@
     - **Compliance**: Improved auditability by versioning all inputs and outputs
     - **Quality**: Enforce policies against model bias and track data/model changes over time
 
-###### Workflow Orchestration Services
+#### Workflow Orchestration Services
 
 - **Amazon SageMaker Pipelines** - ML Pipeline Orchestration
     - Orchestrate SageMaker jobs and author reproducible ML pipelines
@@ -383,11 +381,11 @@
     - Programmatically author, schedule, and monitor workflow sequences
     - Managed infrastructure for scalability, availability, and security
 
-##### Repositories
+#### Repositories
 
 - **Repositories** are where you keep versions of your code and models for MLOps workflows.
 
-###### Repository Services
+#### Repository Services
 
 - **SageMaker Feature Store** - Feature Repository
     - Repository for feature definitions of training data
@@ -403,14 +401,14 @@
 
 - Models need to be evaluated against target metrics to measure performance. A **confusion matrix** is used to summarize the performance of a classification model when evaluated against test data.
 
-##### Confusion Matrix Components
+#### Confusion Matrix Components
 
 - **True Positive (TP)**: Model correctly predicts positive class (e.g., correctly identifies a fish as a fish)
 - **True Negative (TN)**: Model correctly predicts negative class (e.g., correctly identifies non-fish as non-fish)
 - **False Positive (FP)**: Model incorrectly predicts positive class (e.g., identifies non-fish as fish)
 - **False Negative (FN)**: Model incorrectly predicts negative class (e.g., identifies fish as non-fish)
 
-##### Performance Metrics
+#### Performance Metrics
 
 - **Accuracy**: Percentage of correct predictions. Not a good metric for imbalanced datasets. Formula: (TP + TN) / Total predictions. Values range from 0 to 1, where 1 indicates perfect accuracy.
 
@@ -430,7 +428,7 @@
     
     - AUC provides aggregated measure of model performance across full range of thresholds. Scores range 0-1, where 1 indicates perfect accuracy and 0.5 indicates prediction no better than random classifier.
 
-##### Regression Metrics
+#### Regression Metrics
 
 - **Mean Squared Error (MSE)**: Used to evaluate linear *regression* models. Takes difference between prediction and actual value, squares the difference, then computes average of all squared differences. MSE values are always positive - smaller values indicate better performance.
 
@@ -448,13 +446,11 @@
 
 - Consider actual cost of building and operating the model compared to initial cost-benefit analysis to calculate return on investment.
 
-##### Cost Tracking
+#### Cost Tracking
 
 - **AWS Cost Allocation Tags**: Define tags assigned to resources you create (e.g., ML project name as tag). Add tags to all pipeline resources, then filter cost reports in AWS Cost Explorer to determine actual AWS charges for the project.
 
-## Domain 2:
-
-### 2.1: Explain The Basic Concepts Of Generative AI
+## Domain 2: 2.1 Explain The Basic Concepts Of Generative AI
 
 - **Generative AI** is a subset of deep learning. Like deep learning, generative AI is a multipurpose technology that helps to generate new original content rather than finding or classifying existing content.
 
@@ -951,7 +947,7 @@ Perform alternative trade-off analysis to obtain optimal performance and accurac
 - **Account level**: When enabled at account level, no buckets (existing or new) can grant public access.
 - **Override capability**: When enabled, S3 Block Public Access overrides any public permissions granted by bucket policies or access control lists.
 
-### Amazon SageMaker Role Manager
+#### Amazon SageMaker Role Manager
 - **Purpose**: Greatly simplifies creating IAM roles that grant permissions to perform ML activities instead of creating IAM permissions policies manually.
 - **Pre-configured components**:
     - Three pre-configured role personas
@@ -959,19 +955,19 @@ Perform alternative trade-off analysis to obtain optimal performance and accurac
     - Permissions to access other services (Amazon S3, AWS Glue, Amazon Athena, Amazon CloudWatch)
     - Permissions to manage and monitor SageMaker resources (models, endpoints, training jobs, pipelines, experiments)
 
-#### Role Personas
+##### Role Personas
 - **Data scientist persona**: For users who need to use SageMaker to perform general machine learning development and experimentation.
 - **MLOps persona**: For users managing models, pipelines, experiments, and endpoints, but who don't need to access data in Amazon S3.
 - **SageMaker compute persona**: Used for creating roles that SageMaker compute resources can use to perform tasks such as training and inference.
 
-### AI System Vulnerabilities and Attacks
+#### AI System Vulnerabilities and Attacks
 - **Training data poisoning**: Malicious actors can introduce corrupted data into training datasets to alter model predictions and behavior.
 - **Adversarial Inputs**: Subtle manipulations to input data designed to cause model misclassification.
 - **Model Inversion Attacks**: Attacker feeds data into model and studies outputs to infer training data.
 - **Model Extraction/Reverse Engineering**: Using input-output pairs to train a new model that works in reverse to infer original training data.
 - **Prompt Injection**: Malicious instructions given to large language models through prompts to influence output. Prompting LLM to ignore or alter its prompt template to gain sensitive information.
 
-### Security Mitigation Strategies
+#### Security Mitigation Strategies
 - **Securing and limiting access to data and models**: to block reverse engineering
 - **Monitor models in production for drift and anomalies**
 - **Data and artifacts should be encrypted**
@@ -982,9 +978,9 @@ Perform alternative trade-off analysis to obtain optimal performance and accurac
 - **Validation datasets**: Maintain separate validation datasets and validate models after each retraining before deployment.
 - **Data quality monitoring**: Routinely scan and monitor training data for quality issues and anomalies.
 
-### Production Monitoring and Anomaly Detection
+#### Production Monitoring and Anomaly Detection
 
-#### Amazon SageMaker Model Monitor
+##### Amazon SageMaker Model Monitor
 - **Purpose**: Continuously monitor quality of SageMaker ML models in production environments.
 - **Real-time monitoring**: Provides continuous monitoring capabilities for deployed models.
 - **Automated alerting**: Set up automated alert systems for deviations in model quality, data drift, or anomalies.
@@ -1002,18 +998,18 @@ Perform alternative trade-off analysis to obtain optimal performance and accurac
 - **Performance evaluation**: Evaluates model performance against baseline metrics.
 - **Results visualization**: View monitoring results in SageMaker Studio interface.
 
-#### Amazon CloudWatch Integration
+##### Amazon CloudWatch Integration
 - **Log collection**: CloudWatch Logs collect monitoring files and model status information.
 - **Threshold notifications**: Notifies when model quality hits preset thresholds.
 - **S3 storage**: Stores log files in specified Amazon S3 buckets for long-term retention.
 - **Metrics visibility**: Statistics and metrics visible in both SageMaker Studio and CloudWatch.
 
-### Model Reproducibility Requirements
+#### Model Reproducibility Requirements
 - **Regulatory compliance**: Tracking all artifacts used for model production is essential for meeting regulatory and control requirements
 - **Model recreation**: All artifacts that went into model development must be versioned and tracked to recreate models
 - **Audit trail**: Maintain comprehensive records for governance and compliance purposes
 
-### Amazon SageMaker Model Registry
+#### Amazon SageMaker Model Registry
 - **Model cataloging**: Store model versions in a model catalog using SageMaker Model Registry
 - **Model groups**: Catalog models in groups that contain different versions of a model
 - **Model packages**: Each model package in a group corresponds to a trained model
@@ -1022,7 +1018,7 @@ Perform alternative trade-off analysis to obtain optimal performance and accurac
 - **Status tracking**: Maintain model status such as pending, approved, or rejected
 - **Training job tracking**: SageMaker automatically identifies each training job and stores metadata like hyperparameters and unique identifiers
 
-### Amazon SageMaker Model Cards
+#### Amazon SageMaker Model Cards
 - **Documentation**: Document, retrieve, and share essential model information from conception to deployment
 - **Immutable records**: Create immutable records of:
   - Intended model uses
@@ -1031,7 +1027,7 @@ Perform alternative trade-off analysis to obtain optimal performance and accurac
   - Evaluation results
 - **Export capability**: Model cards can be exported to PDF and shared with relevant stakeholders
 
-### Amazon SageMaker ML Lineage Tracking
+#### Amazon SageMaker ML Lineage Tracking
 - **Workflow visualization**: Automatically creates graphical representation of end-to-end ML workflows
 - **Model governance**: Use representation to establish model governance and reproduce workflows
 - **Work history**: Maintain comprehensive record of work history
@@ -1045,7 +1041,7 @@ Perform alternative trade-off analysis to obtain optimal performance and accurac
   - Retrieve all models that use a particular dataset
   - Retrieve datasets that use a container image artifact
 
-### Amazon SageMaker Feature Store
+#### Amazon SageMaker Feature Store
 - **Feature management**: Centralized store for features and associated metadata for easy discovery and reuse
 - **Development acceleration**: Makes it less complicated to create, share, and manage features for ML development
 - **Data processing reduction**: Reduces repetitive data processing and curation work required to convert raw data into features
@@ -1056,7 +1052,7 @@ Perform alternative trade-off analysis to obtain optimal performance and accurac
   - Ingestion methods to feature groups
 - **Point-in-time queries**: Support queries to retrieve the state of each feature at historical times of interest
 
-### Amazon SageMaker Model Dashboard
+#### Amazon SageMaker Model Dashboard
 - **Centralized portal**: Accessible from SageMaker console to view, search, and explore all models in your account
 - **Information aggregation**: Aggregates model-related information from several features including Model Monitor and Model Cards
 - **Workflow visualization**: Visualize workflow lineage and track endpoint performance
@@ -1069,15 +1065,344 @@ Perform alternative trade-off analysis to obtain optimal performance and accurac
   - Explainability
 - **Comprehensive presentation**: Helps quickly identify models that don't have monitoring metrics configured
 
-
-
-
-
 ### 5.2: Recognize Governance and Compliance Regulations for AI Systems
 
+#### AWS Customer Compliance Center
+- **Resource hub**: Set of resources to help customers learn about AWS compliance
+- **Available resources**:
+  - Customer compliance stories from regulated industries
+  - Solutions for compliance, governance, and audit challenges
+  - Compliance whitepapers and documentation
+  - AWS answers to key compliance questions
+  - Overview of AWS risk and compliance
+  - Auditing security checklist
+- **Auditor learning path**: Specialized training for individuals in auditing, compliance, and legal roles
+- **Cloud demonstration**: Helps internal operations use AWS Cloud to demonstrate compliance
 
+#### AI Compliance Standards
 
+##### Emerging Standards
+- **ISO 42001 and ISO 23894** (published 2023): Established mechanisms for assessing and managing risk in AI systems
+  - Framework for organizations to systematically address and control AI development and deployment risks
+  - Emphasis on responsible AI practices and controls specific to AI systems
+  - Foster global interoperability and foundation for responsible AI deployment
+  - **Important note**: Compliance standards are highly recommended but not legal requirements
 
+##### EU AI Act
+- **First comprehensive AI regulation** by a major regulator anywhere
+- **Three risk categories** for AI applications:
+
+  1. **Unacceptable Risk** (banned outright):
+     - Social scoring applications that classify individuals/groups based on social behavior
+     - Facial recognition databases that scrape facial images from the internet
+     - Applications that infer emotions in workplaces or educational institutions
+
+  2. **High-Risk Applications** (subject to specific legal requirements):
+     - Most AI systems fall under this category
+
+  3. **Low Risk** (largely unregulated):
+     - Applications not explicitly banned or listed as high-risk
+
+#### NIST AI Risk Management Framework (RMF)
+
+##### Framework Overview
+- **Purpose**: Guidance for promoting trustworthy, responsible development and use of AI systems
+- **Scope**: Resource for organizations that design, develop, deploy, or use AI systems
+- **Nature**: Voluntary framework intended to help manage AI risks
+- **Four core functions**: Govern, Map, Measure, and Manage
+
+##### Risk Assessment Process
+- **Risk calculation**: Risk = Likelihood of event × Severity of consequences
+- **Risk matrix**: Used to categorize events (e.g., low severity + rare likelihood = very low risk)
+
+##### Risk Assessment Steps
+1. **Identify AI use case** and relevant stakeholders
+2. **Consider user interactions** and goals for the system
+3. **Identify potentially harmful events** associated with the use case
+4. **Use risk matrix** to determine risk for each event
+5. **Address inherent risk** through security controls and monitoring
+6. **Calculate residual risk** (risk remaining after mitigations)
+7. **Summarize overall risk rating** focusing on highest residual risk ratings
+
+#### US Algorithmic Accountability Act
+
+##### Proposed Legislation
+- **Status**: Introduced several times to US Congress (not yet enacted)
+- **Requirements** (if enacted):
+  - Companies must assess impacts of AI systems they use and sell
+  - Create transparency about when and how AI systems are used
+  - Empower consumers to make informed choices when interacting with AI
+
+##### Consumer Protection Goals
+- **Protect against unfair results**: Prevent AI systems from leading to unexplained or biased outcomes
+- **Right to explanation**: Consumers should know why decisions were made (e.g., loan application rejection)
+- **Bias prevention**: Ensure decisions aren't influenced by inherent unfair bias
+
+#### AWS Audit Manager
+- **AWS Audit Manager** maps your compliance requirements to your AWS usage data to help customers achieve compliance. It provides services and features to help audit, monitor, control and report on relevant security controls that customers must configure correctly.
+- **Key Features**:
+  - Collects evidence of compliance or noncompliance automatically
+  - Produces assessment reports that can be given to auditors
+  - Creates assessments based on chosen **frameworks** (groupings of controls related to your audit)
+  - Built-in frameworks include generative AI best practices and SOC 2
+  - Custom framework creation for specific control requirements
+
+#### Amazon Bedrock Guardrails
+- **Guardrails** is a feature for Amazon Bedrock that you use to implement application-specific safeguards based on your use cases and responsible AI policies.
+- **Content Filtering**: Provides content filters with configurable thresholds to filter harmful content across categories: Hate speech, Insults, Sexual content, Violence
+
+##### Key Capabilities
+- **Topic Avoidance**: Using short natural language descriptions, you can define a set of topics to avoid within the context of your application
+- **Example Phrases**: Optionally provide example phrases to help guardrails recognize the restricted topics
+- **Dual Evaluation**: Guardrails detects and blocks both user inputs and **FM responses** that fall into restricted topics
+- **PII Detection**: Allows you to detect **personally identifiable information (PII)** in user inputs and FM responses
+- **PII Handling**: Based on the use case, you can selectively reject inputs that contain PII or redact PII in FM responses
+
+##### Configuration
+- Configure thresholds across different categories to filter out harmful interactions
+- Guardrails automatically evaluate both user queries and FM responses to detect and help prevent content that falls into restricted categories
+
+#### AWS Config
+- **AWS Config** provides a detailed inventory of the current configuration of AWS resources. It helps maintain compliance by monitoring configuration changes and ensuring resources remain compliant.
+- **Configuration Tracking**: Whenever a resource configuration change occurs, AWS Config captures and records the change in a **configuration history snapshot**
+
+##### AI/ML Specific Conformance Packs
+- **Operational Best Practices for AI and ML**
+- **Security Best Practices for Amazon SageMaker**
+
+#### AWS Trusted Advisor
+- **AWS Trusted Advisor** helps you optimize costs, increase performance, improve security and resilience, and operate at scale in the cloud.
+- **Evaluation Categories**:
+  - Cost optimization
+  - Performance
+  - Resilience
+  - Security
+  - Operational excellence
+  - Service limits
+
+##### Key Features
+- **Continuous Evaluation**: Continuously evaluates your AWS environment using best practice checks across all categories
+- **Remediation Recommendations**: Recommends actions to remediate any deviations from best practices
+- **Multi-dimensional Optimization**: Provides comprehensive optimization across multiple aspects of your AWS environment
+
+#### Data Governance Fundamentals
+- **Data governance** is the combination of people, process, and technology used to manage the availability, usability, integrity, and security of enterprise system data
+- Effective data governance ensures data is consistent and trustworthy without being misused
+- Data governance can be broken down into three major parts: **curation**, **discovery and understanding**, and **protection**
+
+##### Data Curation
+- **Curating data at scale** means identifying and managing your most valuable data sources, including: Databases, Data lakes, Data warehouses
+- Ensures data is accurate, fresh, and free of sensitive information so users can have confidence in data-driven decisions
+
+##### Data Discovery and Understanding
+- **Understanding data in context** means users can discover and comprehend the meaning of their data to use it confidently to drive business value
+- With a **centralized data catalog**, data can be found easily
+- Access can be requested and data can be used to make business decisions
+
+##### Data Protection
+- **Protecting data** means striking the right balance between data privacy, security, and access
+- Essential to govern data across organizational boundaries with tools that are intuitive for both business and engineering users
+- Data governance focuses on ensuring data is treated as a **strategic asset** and developing competencies to put that asset to effective use
+
+#### Data Governance Roles and Responsibilities
+
+##### Implementation Strategy
+- Start with data domains necessary to succeed with targeted business initiatives
+- Define key data governance roles and responsibilities: **data owners**, **stewards**, and **IT**
+- Take segregation of duties into account when assigning roles
+
+##### Data Steward
+- **Data steward** is a person from the business who has detailed knowledge of the data needed to support targeted business initiatives
+- Involved in project details day to day
+- Help understand data issues that are likely to cause challenges with business initiatives
+- Data stewardship should be a responsibility of all data-facing business personnel
+
+##### Data Owner
+- **Data owner** is an executive-level person who makes data policy decisions, including regulatory and compliance policies
+- Decides who has access to specific data (e.g., claims data, customer data)
+- Direct relationship exists between data owner and data steward. Data owner owns policies about the data that guides the work of the data steward
+
+##### IT Roles
+- Help navigate systems that produce and consume data
+- Provide data stewards with the right tools and capabilities
+- Responsible for managing and deploying data governance tools in AWS
+
+#### Data Governance Tools and Processes
+- **Data profiling** systematically examines data to determine whether anything is wrong with the data and to understand data characteristics for various purposes
+- **Data catalog** makes sure data is available for people who need access to it
+- **Data lineage** identifies where specific data elements originated and how the data was moved, transformed, and stored
+- When data consumers see data in a report, they often question where the data came from and any calculations made along the way
+
+#### AWS Glue DataBrew for Data Governance
+- **AWS Glue DataBrew** is a visual data preparation tool that users can use to clean and normalize data without writing any code
+- Can analyze many types of datasets, including:
+  - Data stored in Amazon S3
+  - Relational databases
+  - Data warehouses
+- Has two key features helpful for data governance:
+
+##### Data Profiling Capabilities
+- Run profiling jobs against datasets to create a **data profile**
+- Profile tells you about the existing shape of your data, including: Context of the content, Structure of the data, Data relationships
+- Define **data quality rules** that are validated during profiling to detect problems with the data.
+
+##### Data Lineage Tracking
+- Tracks data in a visual interface to determine its origin (**data lineage**)
+- Shows how data flows through different entities from where it originally came
+- View data's origin, other entities that influenced it, what happened to it over time, and where it was stored
+
+#### Data Quality Management
+- **Data quality management** addresses data quality issues found in data profiling or through other means
+- Requires getting to the root of what's causing data quality problems
+- Needs both business and technical knowledge of the data and its role in targeted initiatives
+- When problems involve the source, must alert and report issues to **data steward** and business users for correction
+
+#### Data Integration
+- **Data integration** involves collecting and merging data from various sources
+- Must ensure data from different sources links together coherently for a complete picture
+- Critical for combining disparate data sources into unified datasets for ML training
+
+#### AWS Glue Data Catalog
+- **AWS Glue Data Catalog** stores metadata about data sources
+- Metadata includes:
+  - Information about locations and schemas
+  - Data types and table definitions
+- Can be populated manually or automatically using **AWS Glue crawler jobs** that scan data sources
+
+#### AWS Glue Data Quality
+- **AWS Glue Data Quality** evaluates objects stored in the AWS Glue Data Catalog
+- Offers non-coders a straightforward way to set up data quality rules
+- Features include:
+  - Recommending quality rules automatically
+  - Using machine learning to detect data anomalies
+  - Running data quality jobs and reviewing results in console
+  - Shows which rules passed or failed
+
+#### Data Security and Access Control
+- **Data security** means defining who can access data and when they should have access
+- Examples: Customer data automatically accessible by customer service or sales roles
+- **Data steward** helps enable role-based and temporary access guided by **data owner** policy decisions
+
+#### Compliance Management
+- **Compliance** means understanding government regulations and ensuring adherence
+- Data owners must work with security and legal teams for policy decisions on sensitive data domains
+- Rules often require interpretation, judgment, and knowledge of business data usage
+
+#### Data Lifecycle Management
+- **Data lifecycle management** means being intentional about storing data for straightforward access and optimized cost
+- Critical for managing training data retention and compliance requirements
+
+#### Data Governance Balance
+- **Data governance** balances making data available to right people and applications while keeping it safe and secure
+- Balance between control and access:
+  - Too much control: Data becomes locked in silos, difficult to use for insights and innovation
+  - Not enough control: Data and business are at risk
+
+#### AWS Lake Formation
+- **AWS Lake Formation** manages fine-grained access control for data lakes built in Amazon S3 and cataloged using AWS Glue Data Catalog
+- Features:
+  - Permissions enforced using granular controls at column, row, and cell levels
+  - Works across AWS analytics and machine learning services
+  - Helps break down data silos and combine structured/unstructured data into centralized repository
+
+##### Lake Formation Workflow
+1. Identify existing data stores in Amazon S3 or relational/NoSQL databases
+2. Move data into your data lake
+3. Catalog the data and set up permissions
+4. Users access data through integrated analytical engines:
+   - Amazon Athena
+   - AWS Glue
+   - Amazon EMR
+   - Amazon Redshift
+5. AWS Glue Data Catalog checks permissions with Lake Formation before granting access
+
+#### Amazon S3 Storage Classes for ML Data
+Training data for ML models typically stored in S3 buckets. After training, data may not need frequent access but must be retained for compliance.
+
+#### AI Governance Strategy Overview
+**AI governance strategy** is a comprehensive approach to managing AI systems that begins with identifying the scope of responsibility and implementing appropriate controls based on that scope.
+- An AI governance strategy begins with identifying your **scope of responsibility**.
+
+#### Generative AI Security Scoping Matrix
+The **Generative AI Security Scoping Matrix** shows increased levels of scope depending on how AI is consumed or implemented:
+
+##### Low Responsibility Scopes (1-2)
+- **Scope 1 & 2**: Consuming third-party consumer or enterprise applications
+- Carry the least responsibility for governance and security
+- Minimal control over underlying AI systems
+
+##### High Responsibility Scopes (3-5)
+- **Scope 3, 4 & 5**: Building your own AI solution
+- Your data can be used in training, fine-tuning, or output of the model
+- You are responsible for:
+  - Classifying data and model for risk
+  - Implementing threat modeling
+  - Limiting access
+  - Implementing security controls
+  - Assuring model endpoint resilience
+
+#### AWS AI Service Selection Strategy
+AWS offers services across all scopes. The recommended approach is to **look for solutions from left to right**:
+
+1. **Fully trained AI services** (lowest scope)
+   - Examples: Amazon Comprehend, Amazon Translate
+   - Minimal governance responsibility
+
+2. **Pre-trained models with enhancement**
+   - Example: Amazon Bedrock with Retrieval Augmented Generation (RAG)
+   - Moderate governance requirements
+
+3. **Pre-trained models with fine-tuning**
+   - Example: SageMaker JumpStart models
+   - Higher governance responsibility due to custom data usage
+
+**Key principle**: Minimizing your scope minimizes responsibilities for governance, compliance, legal/privacy, risk management, security controls, and model resilience.
+
+#### AI Governance Policy Implementation
+Once scope is determined, implement the following steps:
+
+1. Document AI Governance Policies
+- Create comprehensive governance documentation
+- Define responsibilities according to job roles and access levels
+- Establish standards for:
+  - **Data governance**
+  - **Access requests**
+  - **Model transparency**
+
+2. Employee Training
+- Train employees on their specific responsibilities
+- Tailor training to individual job roles and access levels
+- Ensure understanding of governance requirements
+
+3. Compliance Integration
+- Use business-required **compliances and certifications** to guide policies
+- Align with existing regulatory frameworks
+- Implement industry best practices
+
+4. Monitoring and Control Mechanisms
+- Define mechanisms to monitor:
+  - **AI systems performance**
+  - **Compliance adherence**
+  - **Bias detection and mitigation**
+- Establish **pre-defined thresholds** for automated actions
+- Create alerting systems for threshold violations
+
+5. Continuous Improvement
+- **Frequently review results** and performance metrics
+- **Revise existing policies** as necessary
+- Ensure ongoing alignment with:
+  - Business goals
+  - **AI safety** requirements
+  - Regulatory changes
+
+#### Governance Strategy Benefits
+Implementing a comprehensive AI governance strategy provides:
+
+- **Risk mitigation** through proper scoping and controls
+- **Compliance assurance** with regulatory requirements
+- **Operational efficiency** by choosing appropriate service levels
+- **Cost optimization** by minimizing unnecessary governance overhead
+- **Scalability** for future AI implementations
 
 
 
