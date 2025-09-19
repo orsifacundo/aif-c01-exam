@@ -328,9 +328,9 @@
 
 - **SageMaker Inference Options** (Four Types):
   - **Batch Transform**: Offline inference for large datasets (gigabytes), no persistent endpoint needed
-  - **Asynchronous Inference**: Queue requests with large payloads and processing times, scales down to zero during idle periods
-  - **Serverless Inference**: Real-time responses using Lambda functions, pay only when running or pre-provisioned. Serverless inference has a processing time of up to 60 seconds.
-  - **Real-time Inference**: Persistent fully managed REST API endpoint for sustained traffic with immediate responses
+  - **Asynchronous Inference**: Queue requests with large payloads and processing times, scales down to zero during idle periods. Up to 1GB, up to 1h, near real-time.
+  - **Serverless Inference**: Real-time responses using Lambda functions, pay only when running or pre-provisioned. Serverless inference has a processing time of up to 1 minute.
+  - **Real-time Inference**: Persistent fully managed REST API endpoint for sustained traffic with immediate responses. Up to 1 minute.
 
 #### Monitor
 
@@ -684,6 +684,10 @@
     - **MMLU**, or Massive Multitask Language Understanding, evaluates the knowledge and problem-solving capabilities of the model.
     - **Big-bench**, or Beyond the Imitation Game Benchmark, focuses on tasks that are beyond the capabilities of the current language models. It contains tasks such as math, biology, physics, bias, linguistics, reasoning, childhood development, software development, and more.
     - **HELM**, or Holistic Evaluation of Language Models, which is a benchmark to help improve model transparency. It offers users guidance on which model performs well for a given task.
+
+- **BERTScore**: is a metric that measures the semantic similarity between two text sequences by leveraging the contextualized embeddings of a pre-trained language model, such as BERT. It calculates the similarity between the embeddings of the model-generated and expert-validated responses, providing a more nuanced assessment of their semantic similarity.
+
+- **Perplexity**: is a metric used to evaluate the performance of language models. It measures how well the model predicts a given sequence of text, with lower perplexity indicating a better-performing model.
 
 - **Semantic robustness**: evaluates how much your model output changes as the result of small, semantic-preserving changes in the input.
 
@@ -1409,25 +1413,5 @@ Implementing a comprehensive AI governance strategy provides:
 
 
 
-# Temas a buscar
 
-## Domain 1
 
-- R2 (R-Ssquared) Score y  C Mean Absolute Percentage Error (MAPE)
-
-- SageMaker Pipeline workflow specific steps: i.e  ClarifyCheck Step
-
-## Domain 3
-
- -  BERTScore
-
- - Perplexity
-
-C. BERTScore:
-BERTScore is a metric that measures the semantic similarity between two text sequences by leveraging the contextualized embeddings of a pre-trained language model, such as BERT. It calculates the similarity between the embeddings of the model-generated and expert-validated responses, providing a more nuanced assessment of their semantic similarity. This makes BERTScore a more appropriate choice for the given evaluation task.
-
-D. Perplexity:
-Perplexity is a metric used to evaluate the performance of language models. It measures how well the model predicts a given sequence of text, with lower perplexity indicating a better-performing model.
-
--  A global communications company is developing an AI-powered customer chat system that must maintain positive, friendly, and unbiased interactions. What evaluation method should be used to identify foundation models that can consistently meet these requirements in a production environment?
-::AWS AI Service Cards benchmarks??
