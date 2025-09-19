@@ -1,5 +1,9 @@
 # AWS Certified AI Practitioner (AIF-C01)
 
+- Based on the course: [Exam Prep Plan: AWS Certified AI Practitioner (AIF-C01 - English](https://skillbuilder.aws/learning-plan/3NRN71QZR2/exam-prep-plan-aws-certified-ai-practitioner-aifc01--english/FBV4STG94B)
+
+- Nice concepts: [Mind Mesh - The Integrated AWS Certified AI Practitioner (AIF-C01) Study Guide](https://www.mindmeshacademy.com/certifications/aws/aws-certified-ai-practitioner/study-guide/)
+
 ## Domain 1: 1.1 Explain Basic AI Concepts and Terminologies
 
 ![](./images/ai-concepts.png)
